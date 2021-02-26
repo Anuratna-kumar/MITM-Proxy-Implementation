@@ -1,0 +1,10 @@
+ {
+      "breakpoint_url":"https://integration-api.gojekapi.com/v2/customer/cards/gofood-home-v2",
+      "mocked_response_code":503,
+      "mocked_request_body":"",
+      "mocked_response_body":{"name":"Robert","age":"30","country":"USA","interests":"JSON"},
+      "mocked_request_header":{},
+      "mocked_response_header":{},
+      "mocked_request_method" : ""
+ }
+
