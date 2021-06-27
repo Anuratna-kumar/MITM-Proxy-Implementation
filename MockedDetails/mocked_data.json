@@ -1,31 +1,13 @@
 
  [
       {
-            "breakpoint_url":"https://integration-api.gojekapi.com/v2/customer/cards/gofood-home-v2",
-            "mocked_response_code":503,
+            "breakpoint_url":"https://integration-api.gojekapi.com/haggler/public/v5/estimate",
+            "mocked_response_code":200,
             "mocked_request_body":"",
-            "mocked_response_body":{"name":"Robert","age":"30","country":"USA","interests":"JSON"},
+            "mocked_response_body": {"payment_methods[0].payment_method_details.methods[0]": "{\"amount\": \"86.000\",\"method\": \"CASH\",\"template\": [\"bill_yellow\"]}"},
             "mocked_request_header":{},
             "mocked_response_header":{},
             "mocked_request_method" : ""
-      },
-      {
-            "breakpoint_url":"https://integration-api.gojekapi.com/gofood/consumer/v2/filter_and_sort_options?type=RESTAURANT_LIST&picked_loc=-6.175392%2C106.827153&redesign_enabled=true&super_partner_enabled=true",
-            "mocked_response_code":501,
-            "mocked_request_body":"",
-            "mocked_response_body":{"name":"xyz","age":"20","country":"USA","interests":"JSON"},
-            "mocked_request_header":{},
-            "mocked_response_header":{},
-            "mocked_request_method" : ""
-      },
-     {
-              "breakpoint_url":"https://integration-api.gojekapi.com/gofood/search/v2/suggestions?&picked_loc=-6.175392%2C106.827153&redesign_enabled=true&super_partner_enabled=true",
-              "mocked_response_code":504,
-              "mocked_request_body":"",
-              "mocked_response_body":{"name":"asedf","age":"40","country":"USA","interests":"JSON"},
-              "mocked_request_header":{},
-              "mocked_response_header":{},
-              "mocked_request_method" : ""
-     }
+      }
  ]
 

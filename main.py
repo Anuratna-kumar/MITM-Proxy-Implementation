@@ -1,6 +1,7 @@
 import json
 from mitmproxy import http
 from utility import httpModifier, log
+from utility import jsonSearch
 
 req = None
 
@@ -18,8 +19,11 @@ def response(flow: http.HTTPFlow):
     for r in req:
         if r["breakpoint_url"] in flow.request.pretty_url:
             new_response = httpModifier.RequestModifier(flow)
+            log.log_network(flow.response)
             new_response.set_response_status_code(r["mocked_response_code"])
-            new_response.set_response_body(str(r["mocked_response_body"]))
+            mocked_response_values_to_set = jsonSearch.setMockedValues(r["mocked_response_body"], flow.response.content)
+            mocked_response_values_to_set = str(mocked_response_values_to_set).strip("'<>() ").replace('\'', '\"')
+            new_response.set_response_body(mocked_response_values_to_set)
             log.log_network(flow.response)
 
 
@@ -28,3 +32,9 @@ def request(flow: http.HTTPFlow):
         if r["breakpoint_url"] in flow.request.pretty_url:
             new_request = httpModifier.RequestModifier(flow)
             new_request.set_request_header(r["mocked_request_header"])
+            mocked_request_values_to_set = jsonSearch.setMockedValues(r["mocked_request_body"], flow.request.content)
+            new_request.set_request_body(mocked_request_values_to_set)
+            log.log_network(flow.request)
+
+
+
